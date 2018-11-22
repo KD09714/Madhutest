@@ -3,6 +3,9 @@
 		<delete dir="target" />
 	</target>
 	
+	<path id="build.classpath">
+        <pathelement location="src/lib/*.jar"/>
+    </path>
 	<target name="compile">
 		<mkdir dir="target/classes" />
 		<javac srcdir="src" destdir="target/classes" />
