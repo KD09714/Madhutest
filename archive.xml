@@ -1,0 +1,13 @@
+<project name="archive" default="ArchiveBuild" basedir=".">
+	<property name="env" value="QA" />
+	<property file="cfg/deploy-${env}.cfg" />
+
+	<target name="ArchiveBuild" if="archivebuild">
+		<mkdir dir="${artifactdir}/BUILD-${buildnum}" />
+		<copy tofile="${artifactdir}/BUILD-${buildnum}/${warname}.war" preservelastmodified="true">
+			<fileset dir="${warsource}">
+				<include name="*.war" />
+			</fileset>
+		</copy>
+	</target>
+</project>
