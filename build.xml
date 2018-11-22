@@ -4,11 +4,14 @@
 	</target>
 	
 	<path id="build.classpath">
-        <pathelement location="src/lib/*.jar"/>
+        <fileset dir="src/lib">
+			<include name="*.jar" />
+		</fileset>
     </path>
+	
 	<target name="compile">
 		<mkdir dir="target/classes" />
-		<javac srcdir="src" destdir="target/classes" />
+		<javac srcdir="src" destdir="target/classes" classpathref="build.classpath" />	
 	</target>
 	
 	<target name="createWar">
