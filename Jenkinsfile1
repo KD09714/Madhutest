@@ -1,0 +1,15 @@
+pipeline {
+	agent none
+	
+	stages {
+		stage ( 'Git Checkout' ) {
+			agent { label "master" }
+			steps { git 'https://github.com/KD09714/Madhutest.git' }
+			}
+			
+		stage ( 'build' ) {
+			agent { label "master" }
+			steps { bat 'ant clean -f build.xml' }
+			}
+		}	
+	}	
